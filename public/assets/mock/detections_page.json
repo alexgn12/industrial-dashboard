@@ -1,0 +1,17 @@
+{
+  "page": 1,
+  "pageSize": 10,
+  "total": 120,
+  "items": [
+    { "id": 120, "ts": "2025-12-14T20:40:10Z", "lineId": "L1", "presence": 1, "temperatureC": 42.3, "result": "OK",  "defectType": null,      "defectScore": 0.12 },
+    { "id": 119, "ts": "2025-12-14T20:40:08Z", "lineId": "L2", "presence": 1, "temperatureC": 44.1, "result": "NOK", "defectType": "shape",   "defectScore": 0.81 },
+    { "id": 118, "ts": "2025-12-14T20:40:06Z", "lineId": "L1", "presence": 1, "temperatureC": 43.0, "result": "OK",  "defectType": null,      "defectScore": 0.09 },
+    { "id": 117, "ts": "2025-12-14T20:40:04Z", "lineId": "L2", "presence": 1, "temperatureC": 45.2, "result": "NOK", "defectType": "scratch", "defectScore": 0.74 },
+    { "id": 116, "ts": "2025-12-14T20:40:02Z", "lineId": "L1", "presence": 1, "temperatureC": 42.7, "result": "OK",  "defectType": null,      "defectScore": 0.15 },
+    { "id": 115, "ts": "2025-12-14T20:40:00Z", "lineId": "L2", "presence": 1, "temperatureC": 44.8, "result": "NOK", "defectType": "size",    "defectScore": 0.69 },
+    { "id": 114, "ts": "2025-12-14T20:39:58Z", "lineId": "L1", "presence": 1, "temperatureC": 41.9, "result": "OK",  "defectType": null,      "defectScore": 0.10 },
+    { "id": 113, "ts": "2025-12-14T20:39:56Z", "lineId": "L2", "presence": 1, "temperatureC": 45.0, "result": "NOK", "defectType": "shape",   "defectScore": 0.77 },
+    { "id": 112, "ts": "2025-12-14T20:39:54Z", "lineId": "L1", "presence": 1, "temperatureC": 42.2, "result": "OK",  "defectType": null,      "defectScore": 0.11 },
+    { "id": 111, "ts": "2025-12-14T20:39:52Z", "lineId": "L2", "presence": 1, "temperatureC": 44.5, "result": "NOK", "defectType": "unknown", "defectScore": 0.66 }
+  ]
+}

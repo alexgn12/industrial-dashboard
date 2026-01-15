@@ -1,0 +1,118 @@
+<div class="page">
+  <div class="page-head">
+    <div>
+      <h1>Overview</h1>
+      <p class="subtitle">Calidad y rendimiento de la línea (datos simulados)</p>
+    </div>
+
+    <div class="head-actions">
+      <div class="status">
+        <span class="dot"></span>
+        <span>Online</span>
+      </div>
+
+      <button mat-stroked-button>
+        <mat-icon>refresh</mat-icon>
+        Actualizar
+      </button>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <mat-card class="kpi">
+      <div class="kpi-label">Piezas</div>
+      <div class="kpi-value">{{ kpis?.totalPieces ?? '-' }}</div>
+      <div class="kpi-foot">Throughput aproximado</div>
+    </mat-card>
+
+    <mat-card class="kpi">
+      <div class="kpi-label">Defectuosas</div>
+      <div class="kpi-value">{{ kpis?.defectPieces ?? '-' }}</div>
+      <div class="kpi-foot">Rechazadas por inspección</div>
+    </mat-card>
+
+    <mat-card class="kpi">
+      <div class="kpi-label">Tasa NOK</div>
+      <div class="kpi-value">{{ (kpis?.defectRate ?? 0) * 100 | number : '1.1-2' }}%</div>
+      <div class="kpi-foot">Ventana última hora</div>
+    </mat-card>
+
+    <mat-card class="kpi">
+      <div class="kpi-label">Temp media</div>
+      <div class="kpi-value">{{ kpis?.avgTemp ?? '-' }} °C</div>
+      <div class="kpi-foot">Zona de inspección</div>
+    </mat-card>
+  </div>
+
+  <!-- Charts -->
+  <div class="chart-grid">
+    <mat-card class="panel">
+      <div class="panel-head">
+        <div class="panel-title">OK vs NOK</div>
+        <div class="panel-subtitle">Agregado cada 5 min</div>
+      </div>
+      <div class="panel-body">
+        <canvas baseChart [data]="lineData" [options]="lineOptions" [type]="'line'"></canvas>
+      </div>
+    </mat-card>
+
+    <mat-card class="panel">
+      <div class="panel-head">
+        <div class="panel-title">Pareto de defectos</div>
+        <div class="panel-subtitle">Top causas de rechazo</div>
+      </div>
+      <div class="panel-body">
+        <canvas baseChart [data]="paretoData" [options]="paretoOptions" [type]="'bar'"></canvas>
+      </div>
+    </mat-card>
+  </div>
+    <!-- Últimas detecciones -->
+  <!-- Últimas detecciones (solo render) -->
+<mat-card class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Últimas detecciones</div>
+    <div class="panel-subtitle">Mostrando {{ detections?.items?.length ?? 0 }} / {{ detections?.total ?? 0 }}</div>
+  </div>
+
+  <div style="overflow:auto;">
+    <table mat-table [dataSource]="detections?.items ?? []" class="mat-elevation-z0" style="width:100%;">
+
+      <ng-container matColumnDef="ts">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let r">{{ r.ts }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lineId">
+        <th mat-header-cell *matHeaderCellDef>Línea</th>
+        <td mat-cell *matCellDef="let r">{{ r.lineId }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="temperatureC">
+        <th mat-header-cell *matHeaderCellDef>Temp</th>
+        <td mat-cell *matCellDef="let r">{{ r.temperatureC }} °C</td>
+      </ng-container>
+
+      <ng-container matColumnDef="result">
+        <th mat-header-cell *matHeaderCellDef>Resultado</th>
+        <td mat-cell *matCellDef="let r">{{ r.result }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="defectType">
+        <th mat-header-cell *matHeaderCellDef>Defecto</th>
+        <td mat-cell *matCellDef="let r">{{ r.defectType ?? '-' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="defectScore">
+        <th mat-header-cell *matHeaderCellDef>Score</th>
+        <td mat-cell *matCellDef="let r">{{ r.defectScore }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</mat-card>
+
+
+</div>

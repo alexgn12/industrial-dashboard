@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: #f6f7fb;
+  color: #1f2937;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* opcional: que botones y inputs también se vean uniformes */
+button, input, textarea {
+  font-family: inherit;
+}

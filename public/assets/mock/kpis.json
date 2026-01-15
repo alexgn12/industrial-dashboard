@@ -1,0 +1,8 @@
+{
+  "totalPieces": 12450,
+  "defectPieces": 328,
+  "defectRate": 0.0263,
+  "avgTemp": 41.7,
+  "piecesPerMinute": 22.4,
+  "lastEventTs": "2025-12-14T17:45:10Z"
+}

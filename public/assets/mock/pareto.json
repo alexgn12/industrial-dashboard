@@ -1,0 +1,6 @@
+[
+  { "defectType": "size", "count": 142 },
+  { "defectType": "shape", "count": 91 },
+  { "defectType": "scratch", "count": 55 },
+  { "defectType": "unknown", "count": 40 }
+]
